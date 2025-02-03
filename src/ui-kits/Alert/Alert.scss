@@ -1,0 +1,38 @@
+.Alert {
+  display: block;
+  padding: 10px 20px;
+  white-space: normal;
+  font-size: 1rem;
+  word-break: break-all;
+  word-break: break-word;
+  text-shadow: none;
+
+  &.Alert--large {
+    padding: 18px 20px;
+  }
+
+  &.Alert--error {
+    background: #e4c4c4;
+    color: #cb2b2b;
+  }
+
+  &.Alert--success {
+    background: #d2e4c4;
+    color: #307a07;
+  }
+
+  &.Alert--text {
+    background: transparent;
+    padding: 10px 0;
+  }
+
+  @media screen and (min-width: 641px) {
+    .Alert--large {
+      padding: 18px 30px;
+    }
+  }
+}
+
+.Alert__ErrorList {
+  list-style: none;
+}

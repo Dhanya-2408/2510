@@ -1,0 +1,20 @@
+.Container {
+  margin: 0 auto;
+  padding: 0 24px;
+
+  &.Container--Narrow {
+    max-width: 1420px;
+  }
+
+  &.Container--ExtraNarrow {
+    max-width: 800px;
+  }
+
+  @media screen and (min-width: 641px) {
+    padding: 0 50px;
+  }
+
+  @media screen and (min-width: 1240px) {
+    padding: 0 80px;
+  }
+}

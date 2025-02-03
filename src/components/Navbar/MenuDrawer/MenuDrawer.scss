@@ -1,0 +1,26 @@
+/**
+ * ----------------------------------------------------------------------------
+ * Sidebar
+ * ----------------------------------------------------------------------------
+ */
+
+.SidebarMenu {
+  height: 100%;
+  .Collapsible:first-child {
+    border-top: none;
+  }
+
+  .SidebarMenu__Nav--secondary {
+    margin-top: 28px;
+  }
+
+  @media screen and (min-width: 1008px) {
+    .Drawer__Main {
+      padding-top: 26px;
+    }
+
+    .Drawer__Footer::before {
+      height: 70px;
+    }
+  }
+}

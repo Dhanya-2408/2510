@@ -1,0 +1,14 @@
+export const MenuIcon = () => {
+  return (
+    <svg
+      className="Icon Icon--nav-desktop"
+      role="presentation"
+      viewBox="0 0 24 16"
+    >
+      <path
+        d="M0 15.985v-2h24v2H0zm0-9h24v2H0v-2zm0-7h24v2H0v-2z"
+        fill="currentColor"
+      ></path>
+    </svg>
+  );
+};

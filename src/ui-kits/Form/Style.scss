@@ -1,0 +1,332 @@
+.Form {
+  width: 100%;
+
+  &.Form--small {
+    .Form__Input,
+    .Form__Textarea {
+      font-size: 15px;
+      padding-top: 10px;
+      padding-bottom: 10px;
+    }
+  }
+
+  .Form__Alert {
+    margin-bottom: 20px;
+  }
+
+  &.Form--spacingTight {
+    .Form__Item {
+      margin-bottom: 15px;
+    }
+
+    .Form__Alert {
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.Form__Header {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.Form__Item {
+  position: relative;
+  margin-bottom: 15px;
+}
+
+.Form__Label {
+  display: block;
+  padding-bottom: 8px;
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-style: normal;
+  letter-spacing: 0.2em;
+  line-height: normal;
+}
+
+.Form__ItemHelp {
+  // position: absolute;
+  right: 12px;
+  top: 50%;
+  // font-size: 14px;
+  color: #939393;
+  transform: translateY(-50%);
+  position: relative;
+  margin-top: 20px;
+}
+
+.Form__Hint {
+  margin: 24px 0 0 0;
+
+  &:not(:last-child) {
+    margin-bottom: 32px;
+  }
+
+  &.Form__Hint--center {
+    text-align: center;
+  }
+}
+
+.Form__Submit {
+  display: block;
+  margin-top: 20px;
+}
+
+@media screen and (min-width: 641px) {
+  .Form__Item,
+  .Form__Alert {
+    margin-bottom: 30px;
+  }
+
+  .Form__HelpText {
+    margin-top: -15px;
+  }
+
+  .Form__Group {
+    display: flex;
+
+    & > .Form__Item {
+      flex: 1;
+    }
+
+    & > :nth-child(2) {
+      margin-left: 30px;
+    }
+  }
+
+  .Form--spacingTight {
+    .Form__Group > :nth-child(2) {
+      margin-left: 15px;
+    }
+  }
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * Styled TextInput and TextArea
+ * ----------------------------------------------------------------------------
+ */
+
+.Form__FloatingLabel {
+  position: absolute;
+  bottom: calc(100% - 8px);
+  left: 10px;
+  padding: 0 5px;
+  line-height: normal;
+  color: #939393;
+  font-size: 14px;
+  opacity: 0;
+  background: rgba(255, 255, 255, 0);
+  pointer-events: none;
+  transform: translateY(3px);
+  transition: all 0.3s ease-in-out;
+}
+
+.Form__Input,
+.Form__Textarea {
+  -webkit-appearance: none;
+  display: block;
+  padding: 12px 14px;
+  border-radius: 0;
+  border: 1px solid #e7e7e7;
+  width: 100%;
+  line-height: normal;
+  resize: none;
+  transition: border-color 0.1s ease-in-out;
+  background: transparent;
+
+  &:focus {
+    border-color: #9c9c9c;
+    outline: none;
+    padding: 12px 14px;
+  }
+
+  &::placeholder {
+    color: #939393;
+  }
+
+  &:not(:placeholder-shown) ~ .Form__FloatingLabel {
+    opacity: 1;
+    background: white;
+    transform: translateY(0);
+  }
+}
+
+.Form__InputIcon {
+  transition: 0.35s;
+  cursor: pointer;
+  opacity: 0.5;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 20px;
+  height: 20px;
+
+  svg {
+    vertical-align: baseline;
+    width: 100%;
+    height: 100%;
+  }
+
+  &.showClear {
+    top: 10px;
+    width: 10px;
+    height: 10px;
+
+    .Icon--close {
+      stroke-width: 1.5px;
+    }
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * Styled Form Checkbox
+ * ----------------------------------------------------------------------------
+ */
+
+.Form__Checkbox {
+  position: absolute;
+  opacity: 0;
+
+  & ~ label::before {
+    display: inline-block;
+    content: "";
+    width: 1em;
+    height: 1em;
+    margin-right: 10px;
+    border: 1px solid #e7e7e7;
+    vertical-align: -2px;
+  }
+
+  // & ~ svg {
+  //   position: absolute;
+  //   top: 6px;
+  //   left: 2px;
+  //   width: 12px;
+  //   height: 12px;
+  //   transform: scale(0);
+  //   transition: transform 0.2s ease-in-out;
+  //   will-change: transform;
+  // }
+
+  &:checked ~ label::before {
+    border-color: #5c5c5c;
+    background-color: #000;
+    transition: background-color 0.4s ease;
+  }
+
+  // &:checked ~ svg {
+  //   transform: scale(1);
+  // }
+}
+
+/**
+ * ----------------------------------------------------------------------------
+ * Styled select
+ * ----------------------------------------------------------------------------
+ */
+select::-ms-expand {
+  display: none;
+}
+
+.Select {
+  position: relative;
+  color: currentColor;
+  line-height: 1;
+  vertical-align: middle;
+
+  svg {
+    position: absolute;
+    line-height: normal;
+    pointer-events: none;
+    vertical-align: baseline;
+    fill: currentColor;
+  }
+
+  select {
+    /* Disable built-in styles */
+    /* Remove the ugly blue background on IE when a value is selected */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    display: inline-block;
+    color: inherit;
+    cursor: pointer;
+    border-radius: 0;
+    line-height: normal;
+
+    &:focus::-ms-value {
+      background: white;
+      color: #5c5c5c;
+    }
+  }
+
+  option {
+    background: white;
+    color: black;
+  }
+
+  &.Select--primary {
+    &::after {
+      content: "";
+      position: absolute;
+      right: 1px;
+      top: 1px;
+      height: calc(100% - 2px);
+      width: 55px;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0),
+        rgba(255, 255, 255, 0.7) 20%,
+        white 40%
+      );
+      pointer-events: none;
+    }
+    select {
+      width: 100%;
+      height: 45px;
+      padding-left: 14px;
+      padding-right: 28px;
+      border: 1px solid #e7e7e7;
+      background: white;
+
+      &:active,
+      &:focus {
+        border-color: #5c5c5c;
+        outline: none;
+      }
+    }
+
+    svg {
+      top: calc(50% - 5px);
+      right: 15px;
+      width: 10px;
+      height: 10px;
+      z-index: 1;
+    }
+  }
+
+  &.Select--transparent {
+    select {
+      padding-right: 15px;
+      background: transparent;
+      border: none;
+      font-weight: 500;
+      font-style: normal;
+      font-size: inherit;
+      text-transform: uppercase;
+    }
+
+    svg {
+      top: calc(50% - 3px);
+      right: 0;
+      height: 6px;
+    }
+  }
+}

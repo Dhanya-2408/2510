@@ -1,0 +1,152 @@
+.Collapsible {
+  border-top: 1px solid #e7e7e7;
+  border-bottom: 1px solid #e7e7e7;
+  overflow: hidden;
+
+  & + & {
+    border-top: none;
+  }
+
+  &.Collapsible--padded {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+
+  .Collapsible__Button {
+    display: block;
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .Collapsible {
+    margin-left: 16px;
+    border: none;
+
+    .Collapsible__Button {
+      padding: 13px 0;
+    }
+  }
+
+  .Linklist {
+    margin-bottom: 4px;
+  }
+
+  .Linklist--bordered {
+    margin-top: 16px;
+    margin-bottom: 4px;
+  }
+
+  .Collapsible__Plus {
+    position: absolute;
+    right: 0;
+    top: calc(50% - (11px / 2));
+    width: 11px;
+    height: 11px;
+
+    &::before,
+    &::after {
+      position: absolute;
+      content: "";
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) rotate(-90deg);
+      background-color: currentColor;
+      transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
+    }
+
+    &::before {
+      width: 11px;
+      height: 1px;
+      opacity: 1;
+    }
+
+    &::after {
+      width: 1px;
+      height: 11px;
+    }
+  }
+
+  .Collapsible__Inner {
+    display: block;
+    height: 0;
+    visibility: hidden;
+    transition: height 0.35s ease-in-out, visibility 0s ease-in-out 0.35s;
+    overflow: hidden;
+  }
+
+  .Collapsible__Content {
+    padding-bottom: 18px;
+  }
+
+  .Collapsible__Button[aria-expanded="true"] {
+    .Collapsible__Plus {
+      &::after,
+      &::before {
+        transform: translate(-50%, -50%) rotate(90deg);
+      }
+
+      &::before {
+        opacity: 0;
+      }
+    }
+
+    & + .Collapsible__Inner {
+      visibility: visible;
+      transition: height 0.5s ease-in-out;
+    }
+  }
+
+  @media screen and (min-width: 641px) {
+    /* When this class is applied to a collapsible, it will display as a collapsible on mobile but not on larger screen, where it will
+     automatically appear is auto-expanded */
+    &.Collapsible--autoExpand {
+      border: none;
+      overflow: visible;
+      margin-bottom: 32px;
+
+      .Collapsible__Button {
+        cursor: default;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 16px;
+      }
+
+      .Collapsible__Plus {
+        display: none;
+      }
+
+      .Collapsible__Inner {
+        height: auto;
+        visibility: visible;
+        overflow: visible;
+      }
+
+      .Collapsible__Content {
+        padding-bottom: 0;
+      }
+
+      .Linklist {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  @media screen and (min-width: 1008px) {
+    &.Collapsible--padded {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
+
+    &.Collapsible--large {
+      .Collapsible__Button {
+        padding: 34px 0;
+      }
+      .Collapsible__Content {
+        padding-bottom: 45px;
+      }
+    }
+  }
+}

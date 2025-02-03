@@ -1,0 +1,45 @@
+/**
+ * ----------------------------------------------------------------------------
+ * Section Header
+ * ----------------------------------------------------------------------------
+ */
+
+.SectionHeader {
+  text-align: center;
+
+  &:not(:only-child) {
+    margin-bottom: 40px;
+  }
+
+  &__Heading,
+  &__SubHeading {
+    margin-top: -0.325em;
+  }
+
+  &__Description {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    a {
+      text-decoration: underline;
+      text-decoration-color: currentColor;
+      text-underline-position: under;
+    }
+  }
+
+  &__Heading + &__SubHeading,
+  &__Description {
+    margin-top: 30px;
+    text-align: left;
+  }
+
+  @media screen and (min-width: 1008px) {
+    &:not(:only-child) {
+      margin-bottom: 70px;
+    }
+
+    &__Description {
+      margin-top: 24px;
+    }
+  }
+}

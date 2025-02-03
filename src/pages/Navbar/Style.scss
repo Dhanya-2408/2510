@@ -1,0 +1,148 @@
+.HeaderSection {
+  position: relative;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  position: sticky;
+
+  .Header {
+    color: #42474c;
+    border-bottom: none;
+    background-color: #ffffff;
+    box-shadow: 0 10px 10px -10px rgba(33, 35, 38, 0.1);
+  }
+
+  .Header__Wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 18px;
+  }
+
+  .Header__FlexItem {
+    display: flex;
+  }
+
+  .Header__FlexItem--fill {
+    flex: 1 0 0;
+    align-items: center;
+    justify-content: flex-end;
+
+    &:last-child {
+      justify-content: flex-end;
+    }
+  }
+
+  .Header__Logo {
+    position: relative;
+    margin-bottom: 0;
+
+    .Header__LogoLink,
+    .Header__LogoImage {
+      display: block;
+    }
+
+    .Header__LogoImage {
+      margin: 0 auto;
+      transition: opacity 0.3s ease-in-out;
+      height: 80px;
+    }
+  }
+
+  .Header__MainNav {
+    margin-right: 45px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    width: 100%;
+    text-align: center;
+
+    .HorizontalList {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .Header__LinkSpacer {
+    position: relative;
+    padding: 10px 0;
+
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 100%;
+      border-bottom: 2px solid;
+      border-bottom-color: #42474c;
+      transition: right 0.5s;
+    }
+  }
+
+  .HorizontalList__Item {
+    .Heading {
+      color: #42474c;
+    }
+
+    &.is-active {
+      .Heading {
+        color: #212326;
+      }
+
+      .Header__LinkSpacer:after {
+        right: 0;
+      }
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .Header__LogoImage {
+      height: 40px !important;
+    }
+  }
+
+  @media screen and (min-width: 641px) {
+    .Header__Wrapper {
+      padding: 18px 30px;
+    }
+
+    .Header__LogoImage {
+      max-width: 100%;
+    }
+  }
+}
+
+.SidebarMenu {
+  height: 100%;
+
+  .Drawer__Main {
+    padding-top: 26px;
+  }
+
+  @media screen and (min-width: 1008px) {
+    .Drawer__Footer::before {
+      height: 70px;
+    }
+  }
+}
+
+.SecondarySection {
+  display: flex;
+  align-items: center;
+  padding: 0 18px;
+  background: #880808;
+  color: white;
+
+  .Select.Select--primary {
+    width: 100%;
+    select {
+      border: none;
+      background: transparent;
+    }
+
+    &::after {
+      background: transparent;
+    }
+  }
+}

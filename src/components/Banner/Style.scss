@@ -1,0 +1,87 @@
+.HomeHero {
+  position: relative;
+  overflow: hidden;
+
+  &__Image {
+    display: block;
+    width: 100%;
+    height: auto;
+    position: relative;
+    z-index: 10;
+
+    > img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      z-index: 10;
+    }
+
+    h2 {
+      position: absolute;
+      text-align: center;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-transform: uppercase;
+      color: white;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      // background: linear-gradient(
+      //   to top,
+      //   rgba(0, 0, 0, 0.65) 0,
+      //   rgba(0, 0, 0, 0) 30%
+      // );
+    }
+  }
+
+  &__SkeletonLoader {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 99.99%;
+    height: 99.99%;
+    // background: #eaeaec
+    //   linear-gradient(left, #eaeaec, #dad9d9 35%, #eaeaec 70%, #eaeaec)
+    //   no-repeat;
+    background: #eaeaec -webkit-gradient(
+        linear,
+        left top,
+        right top,
+        color-stop(0, #eaeaec),
+        color-stop(35%, #dad9d9),
+        color-stop(70%, #eaeaec),
+        to(#eaeaec)
+      ) no-repeat;
+    background-size: 800px 100%;
+    -webkit-animation: image-grid-loading-skeleton 1.7s
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite forwards;
+    animation: image-grid-loading-skeleton 1.7s
+      cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite forwards;
+
+    @-webkit-keyframes image-grid-loading-skeleton {
+      0% {
+        background-position: -468px 0;
+      }
+      to {
+        background-position: 468px 0;
+      }
+    }
+    @keyframes image-grid-loading-skeleton {
+      0% {
+        background-position: -468px 0;
+      }
+      to {
+        background-position: 468px 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+.PageWidth {
+  padding: 0 15px;
+  max-width: 1600px;
+  margin: 0 auto;
+
+  &.PageWidth--Narrow {
+    max-width: 1300px;
+  }
+
+  @media only screen and (min-width: 590px) {
+    padding: 0 30px;
+  }
+}

@@ -1,0 +1,54 @@
+.Footer {
+  padding: 34px 0;
+  background: #000;
+  color: #ffffff;
+  background-size: cover;
+  background-position: top;
+  text-align: center;
+
+  .Heading {
+    color: #ffffff;
+  }
+
+  .Footer__Inner {
+    display: flex;
+    flex-wrap: wrap;
+    flex-flow: column;
+    align-content: center;
+    margin-left: -40px;
+    margin-right: -40px;
+    max-width: 500px;
+    margin: auto;
+  }
+
+  .Form__Input::placeholder {
+    color: #ffffff;
+    border: none;
+  }
+
+  .Form__Submit {
+    background: #1d1d1d;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .Footer__Block {
+    margin-top: 48px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .Footer__Title {
+    margin-bottom: 20px;
+  }
+
+  @media screen and (min-width: 1140px) {
+    .Footer__Inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+}
